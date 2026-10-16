@@ -3,56 +3,270 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hailey Cummings</title>
-  <meta name="description" content="Project management and AI engineering. Site under construction.">
-  <style>
-    :root {
-      --ground: #f4efe6;
-      --ink: #1d1b19;
-      --accent: #b4432b;
-      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { --ground: #181614; --ink: #f1ebe0; --accent: #e0775c; }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: var(--ground);
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-    }
-    main { max-width: 36rem; }
-    h1 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(2.5rem, 9vw, 4.5rem);
-      line-height: 1;
-      font-weight: 400;
-      text-wrap: balance;
-    }
-    p { margin: 0; font-size: 1.125rem; line-height: 1.5; }
-    .line { color: var(--accent); }
-    main > * {
-      opacity: 0;
-      transform: translateY(8px);
-      animation: in 400ms var(--ease-out) forwards;
-    }
-    main > p { animation-delay: 80ms; }
-    @keyframes in { to { opacity: 1; transform: none; } }
-    @media (prefers-reduced-motion: reduce) {
-      main > * { animation: none; opacity: 1; transform: none; }
-    }
-    ::selection { background: var(--accent); color: var(--ground); }
-  </style>
+  <title>Hailey Cummings | Project manager who builds with AI</title>
+  <meta name="description" content="Hailey Cummings is a senior project and change management consultant building toward AI engineering. Skills with proof, and the projects behind them.">
+  <meta name="theme-color" content="#f3ecdf">
+  <link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <main>
-    <h1>Hailey Cummings</h1>
-    <p>Project management <span class="line">meets</span> AI engineering. The full site is on its way.</p>
+  <a class="skip" href="#work">Skip to the work</a>
+
+  <header class="bar">
+    <a class="bar-name" href="#top">Hailey Cummings</a>
+    <nav class="bar-nav" aria-label="Sections">
+      <a href="#skills">Skills</a>
+      <a href="#work">Projects</a>
+      <a href="#notes">Field notes</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="cc" id="cc" type="button" aria-pressed="true" aria-label="Captions">
+      <span class="cc-mark" aria-hidden="true">CC</span>
+      <span class="cc-state" id="cc-state">On</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- Intro: the plan and the build meet, and Hailey drops in -->
+    <section class="stage" aria-labelledby="hero-title">
+      <div class="stage-head">
+        <h1 id="hero-title">Hailey Cummings</h1>
+        <p class="stage-sub">Project manager who builds with AI.</p>
+      </div>
+
+      <div class="panels">
+        <div class="panel panel-pm">
+          <div class="plan" aria-hidden="true">
+            <i style="--s:0;--w:46%"></i>
+            <i style="--s:16%;--w:38%"></i>
+            <i style="--s:34%;--w:52%"></i>
+            <i style="--s:58%;--w:36%"></i>
+          </div>
+          <h2>The plan</h2>
+          <ul>
+            <li>Eleven years delivering enterprise programs</li>
+            <li>Agile, waterfall, hybrid: whatever fits the work</li>
+            <li>ADKAR-led change that sticks</li>
+          </ul>
+        </div>
+
+        <div class="panel panel-ai">
+          <pre class="code" aria-hidden="true"><span>plan</span> = load(<em>"roadmap"</em>)
+<span>build</span> = agent(plan)
+<span>ship</span> &rarr; adopt(team)</pre>
+          <h2>The build</h2>
+          <ul>
+            <li>Python projects, shipped in public</li>
+            <li>AI tooling adoption, from pilot to habit</li>
+            <li>IBM AI Engineering certificate, in progress</li>
+          </ul>
+        </div>
+
+        <div class="seam" aria-hidden="true"><span class="milestone"></span></div>
+
+        <div class="figure" id="figure" aria-hidden="true">
+          <svg viewBox="0 0 220 400" role="img" focusable="false" class="avatar" id="avatar">
+            <ellipse class="shadow" cx="110" cy="391" rx="56" ry="8"/>
+            <g class="legs">
+              <rect x="84" y="250" width="23" height="128" rx="11" fill="var(--trouser)"/>
+              <rect x="113" y="250" width="23" height="128" rx="11" fill="var(--trouser)"/>
+              <path d="M78 380 q6 -10 30 -6 v14 h-30z" fill="var(--shoe)"/>
+              <path d="M142 380 q-6 -10 -30 -6 v14 h30z" fill="var(--shoe)"/>
+            </g>
+            <g class="arm arm-l">
+              <path d="M76 154 Q56 204 62 248" fill="none" stroke="var(--blazer)" stroke-width="23" stroke-linecap="round"/>
+              <circle cx="62" cy="256" r="11" fill="var(--skin)"/>
+            </g>
+            <path class="torso" d="M72 148 Q110 126 148 148 L158 268 Q110 284 62 268 Z" fill="var(--blazer)"/>
+            <path d="M95 138 L110 196 L125 138 Z" fill="var(--top)"/>
+            <path d="M95 138 L104 168 L86 150 Z M125 138 L116 168 L134 150 Z" fill="var(--blazer-dark)"/>
+            <rect x="103" y="116" width="14" height="26" rx="6" fill="var(--skin)"/>
+            <g class="arm arm-r">
+              <path d="M144 154 Q164 204 158 248" fill="none" stroke="var(--blazer)" stroke-width="23" stroke-linecap="round"/>
+              <circle cx="158" cy="256" r="11" fill="var(--skin)"/>
+            </g>
+            <g class="head">
+              <circle cx="110" cy="30" r="24" fill="var(--hair)"/>
+              <circle cx="84" cy="46" r="18" fill="var(--hair)"/>
+              <circle cx="136" cy="46" r="18" fill="var(--hair)"/>
+              <ellipse cx="110" cy="92" rx="32" ry="36" fill="var(--skin)"/>
+              <path d="M76 90 Q72 44 110 42 Q148 44 144 90 Q136 64 110 62 Q84 64 76 90Z" fill="var(--hair)"/>
+              <circle cx="78" cy="102" r="3.4" fill="var(--gold)"/>
+              <circle cx="142" cy="102" r="3.4" fill="var(--gold)"/>
+              <g class="eyes"><circle cx="98" cy="94" r="3.4" fill="var(--ink)"/><circle cx="122" cy="94" r="3.4" fill="var(--ink)"/></g>
+              <path d="M91 84 q7 -5 14 0 M115 84 q7 -5 14 0" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round"/>
+              <path class="smile" d="M98 108 Q110 121 122 108" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stage-foot">
+        <p class="caption" id="caption" role="status" aria-live="polite">
+          <span id="caption-text">&nbsp;</span>
+        </p>
+        <div class="actions">
+          <a class="btn btn-solid" href="#work">See the work</a>
+          <a class="btn" href="https://www.linkedin.com/in/hailey-cummings-mpa" rel="noopener">Talk to me</a>
+          <button class="btn btn-ghost" id="hear" type="button" hidden>Hear my hello</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted by -->
+    <section class="trusted" data-guide="Teams like these have handed me their hardest programs.">
+      <p>Trusted by teams at <b>Chevron</b>, <b>Electronic Arts</b>, <b>HPE</b>, and <b>Sysco</b>.</p>
+    </section>
+
+    <!-- Skills with proof -->
+    <section class="skills" id="skills" aria-labelledby="skills-title" data-guide="Each skill has its proof next to it. Try the lens switch.">
+      <div class="skills-intro">
+        <h2 id="skills-title">Skills, with receipts</h2>
+        <p>A list of strengths is easy to write. Here is what each one looked like on real work.</p>
+        <div class="lens" role="group" aria-label="Highlight skills by lens">
+          <button type="button" data-lens="all" aria-pressed="true">Everything</button>
+          <button type="button" data-lens="pm" aria-pressed="false">The plan</button>
+          <button type="button" data-lens="ai" aria-pressed="false">The build</button>
+        </div>
+      </div>
+
+      <dl class="ledger" id="ledger" data-lens="all">
+        <div class="row" data-kind="pm">
+          <dt>Project management</dt>
+          <dd>Eleven years running enterprise programs from intake to handoff, in agile, waterfall, and hybrid shops. I choose the method that fits the work, then keep scope, schedule, and risk visible to everyone who needs them.</dd>
+        </div>
+        <div class="row" data-kind="pm">
+          <dt>Stakeholder management</dt>
+          <dd>Built working relationships with C-suite sponsors, Fortune 500 clients, and cross-functional teams, so hard tradeoffs get decided early instead of escalating late.</dd>
+        </div>
+        <div class="row" data-kind="pm">
+          <dt>Change management</dt>
+          <dd>ADKAR-based adoption plans that treat people as the deliverable. I led an AI tooling change program at a large global software company, moving teams from pilot to everyday use.</dd>
+        </div>
+        <div class="row" data-kind="pm">
+          <dt>Delivery and value</dt>
+          <dd>Turned requests into numbers: a self-service portal that cut fulfillment time by 73%, an online assessment platform for learning, and a value-creation plan for a large manufacturer.</dd>
+        </div>
+        <div class="row" data-kind="ai">
+          <dt>AI enablement</dt>
+          <dd>I help organizations choose AI tools, set sensible guardrails, and teach people to use them well. I know how these tools work and where they break, which keeps the adoption plan honest.</dd>
+        </div>
+        <div class="row" data-kind="ai">
+          <dt>Python and AI engineering</dt>
+          <dd>Building in public: a PM toolkit, a pipeline automation, and a survivor-support case study below. Working through IBM's AI Engineering certificate to move toward forward-deployed roles.</dd>
+        </div>
+      </dl>
+      <p class="tools">Daily tools: Jira, Confluence, SharePoint, Teams, PowerPoint, Excel. Python as I build.</p>
+    </section>
+
+    <!-- Projects -->
+    <section class="work" id="work" aria-labelledby="work-title" data-guide="Things I'm building. The survivor-support one is a case study, for safety.">
+      <h2 id="work-title">Things I'm building</h2>
+
+      <article class="project" data-reveal>
+        <div class="art art-arsenal" aria-hidden="true">
+          <svg viewBox="0 0 320 260">
+            <rect width="320" height="260" rx="22" fill="#e9dfcb"/>
+            <rect x="14" y="14" width="140" height="112" rx="18" fill="#bf381f"/>
+            <path d="M84 100 a40 40 0 0 1 56 -34 M84 100 a26 26 0 0 1 36 -22 M84 100 l36 -34" fill="none" stroke="#f3ecdf" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="132" cy="62" r="6" fill="#f4d35e"/>
+            <rect x="166" y="14" width="140" height="112" rx="18" fill="#2230c4"/>
+            <path d="M196 44h80M196 64h80M196 84h52" stroke="#f3ecdf" stroke-width="6" stroke-linecap="round"/>
+            <rect x="14" y="138" width="140" height="108" rx="18" fill="#f4d35e"/>
+            <path d="M44 218v-34M68 218v-56M92 218v-42M116 218v-70" stroke="#1c1a17" stroke-width="12" stroke-linecap="round"/>
+            <rect x="166" y="138" width="140" height="108" rx="18" fill="#1c1a17"/>
+            <path d="M190 164h62a8 8 0 0 1 8 8v22a8 8 0 0 1 -8 8h-44l-14 12v-12h-4a8 8 0 0 1 -8 -8v-22a8 8 0 0 1 8 -8z" fill="#f3ecdf"/>
+            <circle cx="206" cy="184" r="4" fill="#1c1a17"/><circle cx="222" cy="184" r="4" fill="#1c1a17"/><circle cx="238" cy="184" r="4" fill="#1c1a17"/>
+          </svg>
+        </div>
+        <div class="copy">
+          <h3>PM Arsenal</h3>
+          <p>Four tools a project manager reaches for every week, in one place: a Risk Scanner, an Executive Briefing Generator, a Capacity Tracker, and an AI Scenario Roleplay for practicing stakeholder situations.</p>
+          <p class="status">In progress. I'm finishing the build on GitHub, then it goes live here.</p>
+          <a class="link" href="https://github.com/HaileyCummings" rel="noopener">See the code on GitHub</a>
+        </div>
+      </article>
+
+      <article class="project project-flip" data-reveal>
+        <div class="art art-safe" aria-hidden="true">
+          <svg viewBox="0 0 320 260">
+            <rect x="0" y="0" width="320" height="260" rx="22" fill="#e9dfcb"/>
+            <path d="M52 36v188" stroke="#1c1a17" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+            <circle cx="52" cy="60" r="9" fill="#bf381f"/><circle cx="52" cy="124" r="9" fill="#2230c4"/><circle cx="52" cy="188" r="9" fill="#f4d35e" stroke="#1c1a17" stroke-width="3"/>
+            <rect x="76" y="46" width="88" height="10" rx="5" fill="#1c1a17"/><rect x="76" y="66" width="60" height="8" rx="4" fill="#1c1a17" opacity=".35"/>
+            <rect x="76" y="110" width="76" height="10" rx="5" fill="#1c1a17"/><rect x="76" y="130" width="96" height="8" rx="4" fill="#1c1a17" opacity=".35"/>
+            <rect x="76" y="174" width="92" height="10" rx="5" fill="#1c1a17"/><rect x="76" y="194" width="52" height="8" rx="4" fill="#1c1a17" opacity=".35"/>
+            <path d="M246 48c22 12 36 14 46 14 0 62 -10 108 -46 134 -36 -26 -46 -72 -46 -134 10 0 24 -2 46 -14z" fill="#2230c4"/>
+            <path d="M226 118l14 14 28 -32" fill="none" stroke="#f3ecdf" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="copy">
+          <h3>A private place to document abuse, and a person to sit beside you in court</h3>
+          <p class="status status-case">Case study. A concept, not a live service. Any demo uses made-up data.</p>
+          <p>For people leaving abusive situations who aren't ready to call the police. They log incidents with dates and times, assemble them into a packet for an investigator, get plain-language answers about the legal process, find free local support, and are matched with a trained volunteer to attend court with them.</p>
+          <ul class="decisions">
+            <li><b>Built for a shared or watched device.</b> A quick-exit button, a neutral name and icon, and notifications that never reveal the purpose.</li>
+            <li><b>A log an investigator can trust.</b> Entries are timestamped by the server, additions are allowed, and original entries keep their history.</li>
+            <li><b>A chatbot that stays in its lane.</b> It explains the process from vetted sources, does not give legal advice, and surfaces hotline information whenever someone describes danger.</li>
+            <li><b>Volunteers as a safety program.</b> Vetting, training, and a way to report problems come first, ideally with an existing advocacy organization.</li>
+            <li><b>Store less.</b> Retention and what a court could compel are decided up front.</li>
+          </ul>
+          <p class="help">If you need help now: National Domestic Violence Hotline, 1-800-799-7233 or <a href="https://www.thehotline.org" rel="noopener">thehotline.org</a>.</p>
+        </div>
+      </article>
+
+      <article class="project" data-reveal>
+        <div class="art art-flow" aria-hidden="true">
+          <svg viewBox="0 0 320 260">
+            <rect width="320" height="260" rx="22" fill="#e9dfcb"/>
+            <rect x="14" y="30" width="86" height="64" rx="14" fill="#bf381f"/>
+            <path d="M30 48l27 20 27 -20M30 82h54" fill="none" stroke="#f3ecdf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="14" y="166" width="86" height="64" rx="14" fill="#f4d35e"/>
+            <path d="M30 186h54M30 202h54M52 178v44" stroke="#1c1a17" stroke-width="4" stroke-linecap="round"/>
+            <path d="M104 62h44q22 0 22 22v34M104 198h44q22 0 22 -22v-34" fill="none" stroke="#1c1a17" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 10"/>
+            <rect x="160" y="96" width="146" height="68" rx="16" fill="#2230c4"/>
+            <path d="M180 120h106M180 140h72" stroke="#f3ecdf" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="290" cy="140" r="7" fill="#f4d35e"/>
+          </svg>
+        </div>
+        <div class="copy">
+          <h3>Job-search pipeline automation</h3>
+          <p>Connected Gmail, Outlook, and Google Sheets so applications, follow-ups, and fractional leads land in one tracker without copy and paste. A small build that shows how I think about workflows: find the manual step, then remove it.</p>
+          <p class="status">Set up for my own search. A write-up is coming.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Field notes -->
+    <section class="notes" id="notes" aria-labelledby="notes-title" data-guide="A few things that stuck with me.">
+      <h2 id="notes-title">Field notes</h2>
+      <div class="notes-grid">
+        <p><b>Adoption is the deliverable.</b> A tool that nobody changes a habit for is shelfware. ADKAR keeps the plan honest about awareness, desire, knowledge, ability, and reinforcement, in that order.</p>
+        <p><b>Ask what the requester sees.</b> A self-service path beat a faster team, because it removed the waiting instead of speeding it up.</p>
+        <p><b>Make risk boring.</b> When risks are listed, owned, and reviewed on a schedule, they stop being surprises and start being line items.</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title" data-guide="Let's talk.">
+      <h2 id="contact-title">Hiring for a role that sits between the plan and the build?</h2>
+      <p><a class="big-link" href="https://www.linkedin.com/in/hailey-cummings-mpa" rel="noopener">Find me on LinkedIn</a></p>
+      <p class="contact-sub">I'm looking at director-level and hybrid PM and AI engineering roles, including forward-deployed work.</p>
+    </section>
   </main>
+
+  <footer class="foot">
+    <p>Hailey Cummings. Houston, Texas.</p>
+    <p>Set in Fraunces, Instrument Sans, and JetBrains Mono.</p>
+  </footer>
+
+  <!-- Guide: a small Hailey who follows along and says what each section is -->
+  <aside class="dock" id="dock" aria-hidden="true">
+    <div class="dock-fig" id="dock-fig"></div>
+    <p class="dock-say" id="dock-say"></p>
+  </aside>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
