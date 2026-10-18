@@ -1,0 +1,8 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "description": "Hailey Cummings' portfolio site, served by Cloudflare Workers.",
+  "devDependencies": {
+    "wrangler": "^4.151.0"
+  }
+}

@@ -120,6 +120,66 @@
     setTimeout(() => revealTargets.forEach((el) => el.classList.add('in')), 6000);
   }
 
+  /* ---------- Ask the assistant ---------- */
+  const askForm = $('#ask-form');
+  if (askForm) {
+    const log = $('#ask-log');
+    const input = $('#ask-input');
+    const send = $('#ask-send');
+    const chips = $('#ask-chips');
+    const history = [];
+
+    function add(text, kind) {
+      const p = document.createElement('p');
+      p.className = 'msg msg-' + kind;
+      p.textContent = text;
+      log.appendChild(p);
+      log.scrollTop = log.scrollHeight;
+      return p;
+    }
+
+    async function ask(question) {
+      const q = question.trim();
+      if (!q) return;
+      add(q, 'user');
+      history.push({ role: 'user', content: q });
+      input.value = '';
+      input.disabled = true; send.disabled = true;
+      chips.hidden = true;
+      const wait = add('Thinking...', 'bot');
+      wait.classList.add('msg-wait');
+      try {
+        const res = await fetch('/api/ask', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ messages: history.slice(-8) }),
+        });
+        const data = await res.json().catch(() => ({}));
+        wait.remove();
+        if (!res.ok || !data.reply) {
+          history.pop();
+          add(data.error || 'Something went wrong. Please try again.', 'error');
+        } else {
+          history.push({ role: 'assistant', content: data.reply });
+          add(data.reply, 'bot');
+        }
+      } catch (_) {
+        wait.remove();
+        history.pop();
+        add('I could not reach the assistant. Please try again.', 'error');
+      } finally {
+        input.disabled = false; send.disabled = false;
+        input.focus();
+      }
+    }
+
+    askForm.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
+    chips.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (b) ask(b.textContent);
+    });
+  }
+
   /* ---------- Guide dock: a small Hailey who says what each section is ---------- */
   const dock = $('#dock');
   const dockFig = $('#dock-fig');
