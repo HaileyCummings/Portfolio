@@ -85,8 +85,28 @@
     });
   });
 
+  /* ---------- Toolkit: tally and current stage ---------- */
+  const tools = $$('.tk-tools li');
+  const usedCount = tools.filter((li) => li.dataset.status === 'used').length;
+  const tally = $('#tk-tally');
+  if (tally) tally.textContent = usedCount + ' of ' + tools.length + ' tools in my work';
+
+  const stageLinks = $$('.tk-steps a');
+  if ('IntersectionObserver' in window && stageLinks.length) {
+    const byId = new Map(stageLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+    const tio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        byId.forEach((a, id) => {
+          if (id === e.target.id) a.setAttribute('aria-current', 'step'); else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    $$('.tk-row').forEach((r) => tio.observe(r));
+  }
+
   /* ---------- Reveals ---------- */
-  const revealTargets = [...$$('.row'), ...$$('[data-reveal]')];
+  const revealTargets = [...$$('.row'), ...$$('.tk-row'), ...$$('[data-reveal]')];
   if (reduce || !('IntersectionObserver' in window)) {
     revealTargets.forEach((el) => el.classList.add('in'));
   } else {

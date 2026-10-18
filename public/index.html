@@ -17,6 +17,7 @@
     <a class="bar-name" href="#top">Hailey Cummings</a>
     <nav class="bar-nav" aria-label="Sections">
       <a href="#skills">Skills</a>
+      <a href="#toolkit">Toolkit</a>
       <a href="#work">Projects</a>
       <a href="#notes">Field notes</a>
       <a href="#contact">Contact</a>
@@ -158,6 +159,105 @@
         </div>
       </dl>
       <p class="tools">Daily tools: Jira, Confluence, SharePoint, Teams, PowerPoint, Excel. Python as I build.</p>
+    </section>
+
+    <!-- Forward-deployed toolkit -->
+    <section class="toolkit" id="toolkit" aria-labelledby="tk-title" data-guide="The tools forward-deployed and AI engineers use, and where the plan matters at each stage.">
+      <div class="tk-head">
+        <h2 id="tk-title">The forward-deployed toolkit</h2>
+        <p>The tools forward-deployed and AI engineers reach for, stage by stage, with the spot where project management earns its keep. Filled dots are tools I've used in my own work. Hollow ones are on my map.</p>
+      </div>
+
+      <div class="tk-bar">
+        <ol class="tk-steps" aria-label="Stages"><li><a href="#tk-discover">Discover</a></li><li><a href="#tk-connect">Connect</a></li><li><a href="#tk-build">Build</a></li><li><a href="#tk-ground">Ground</a></li><li><a href="#tk-evaluate">Evaluate</a></li><li><a href="#tk-ship">Ship and adopt</a></li></ol>
+        <p class="tk-tally" id="tk-tally" aria-live="off"></p>
+      </div>
+      <div class="tk-legend" aria-hidden="true"><span><i class="dot" data-status="used"></i>In my work</span><span><i class="dot" data-status="studied"></i>Studied</span><span><i class="dot" data-status="map"></i>On my map</span></div>
+
+      <article class="tk-row" id="tk-discover" data-stage="Discover">
+        <div class="tk-lead">
+          <h3>Discover</h3>
+          <p>Find the real problem before anyone writes code. Forward-deployed work starts in the customer's world: their data, their workflow, and the person who feels the pain.</p>
+        </div>
+        <ul class="tk-tools">
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Jira</b> <small>tickets and delivery tracking</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Confluence</b> <small>discovery notes and decisions</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>SQL</b> <small>query the customer's data</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Jupyter</b> <small>explore data fast</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Postman</b> <small>poke at customer APIs</small></span><span class="sr"> (On my map)</span></li>
+        </ul>
+        <p class="tk-plan"><b>Where the plan matters.</b> Stakeholder interviews, a success metric, and a risk list come before the first prototype.</p>
+      </article>
+      <article class="tk-row" id="tk-connect" data-stage="Connect">
+        <div class="tk-lead">
+          <h3>Connect</h3>
+          <p>Wire the model into the systems people already use. Most of the effort here is access, permissions, and plumbing, not AI.</p>
+        </div>
+        <ul class="tk-tools">
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Composio</b> <small>Gmail, Outlook, and Sheets connections</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>MCP</b> <small>standard way to give models tools</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>REST and webhooks</b> <small>move data between systems</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>n8n and Zapier</b> <small>low-code glue</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>OAuth and API keys</b> <small>access done safely</small></span><span class="sr"> (On my map)</span></li>
+        </ul>
+        <p class="tk-plan"><b>Where the plan matters.</b> Security review and data access are schedule risks. Name them in week one, with owners.</p>
+      </article>
+      <article class="tk-row" id="tk-build" data-stage="Build">
+        <div class="tk-lead">
+          <h3>Build</h3>
+          <p>Ship a first version that does one useful thing. Agents and chains come later, once the simple version has proved its worth.</p>
+        </div>
+        <ul class="tk-tools">
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Python</b> <small>my projects, end to end</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Claude</b> <small>assistant and coding partner</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>LLM APIs</b> <small>Anthropic, OpenAI, and others</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>LangChain and LangGraph</b> <small>chains and agent workflows</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>FastAPI</b> <small>serve a model behind an endpoint</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Hugging Face and PyTorch</b> <small>models and training</small></span><span class="sr"> (On my map)</span></li>
+        </ul>
+        <p class="tk-plan"><b>Where the plan matters.</b> Scope the smallest slice that a real user would use, then protect it from additions.</p>
+      </article>
+      <article class="tk-row" id="tk-ground" data-stage="Ground">
+        <div class="tk-lead">
+          <h3>Ground</h3>
+          <p>Make answers come from the customer's own sources instead of the model's memory. Retrieval is where most enterprise assistants succeed or fail.</p>
+        </div>
+        <ul class="tk-tools">
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>RAG</b> <small>retrieval-augmented generation</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Embeddings</b> <small>turn text into searchable vectors</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Chroma and FAISS</b> <small>local vector search</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>pgvector and Pinecone</b> <small>vector search at scale</small></span><span class="sr"> (On my map)</span></li>
+        </ul>
+        <p class="tk-plan"><b>Where the plan matters.</b> Agree on the source of truth and who keeps it current. Stale documents make confident wrong answers.</p>
+      </article>
+      <article class="tk-row" id="tk-evaluate" data-stage="Evaluate">
+        <div class="tk-lead">
+          <h3>Evaluate</h3>
+          <p>Prove it works before anyone relies on it. A small test set and a clear pass mark beat a good demo.</p>
+        </div>
+        <ul class="tk-tools">
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Promptfoo and Ragas</b> <small>test prompts and retrieval</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>LangSmith and Langfuse</b> <small>trace what the model did</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>pytest</b> <small>test the code around the model</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Review rubric</b> <small>human acceptance checks</small></span><span class="sr"> (In my work)</span></li>
+        </ul>
+        <p class="tk-plan"><b>Where the plan matters.</b> Acceptance criteria, a go or no-go review, and a named owner for every failure.</p>
+      </article>
+      <article class="tk-row" id="tk-ship" data-stage="Ship and adopt">
+        <div class="tk-lead">
+          <h3>Ship and adopt</h3>
+          <p>Release it, then get it used. A launch that nobody changes a habit for is not finished.</p>
+        </div>
+        <ul class="tk-tools">
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>GitHub</b> <small>version control and review</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>Cloudflare Workers</b> <small>this site runs here</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="used"><span class="dot" aria-hidden="true"></span><span class="t"><b>ADKAR</b> <small>the adoption method I lead with</small></span><span class="sr"> (In my work)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>Docker</b> <small>package it to run anywhere</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>GitHub Actions</b> <small>automate tests and deploys</small></span><span class="sr"> (On my map)</span></li>
+              <li data-status="map"><span class="dot" aria-hidden="true"></span><span class="t"><b>AWS, Azure, and GCP</b> <small>the clouds customers run on</small></span><span class="sr"> (On my map)</span></li>
+        </ul>
+        <p class="tk-plan"><b>Where the plan matters.</b> Training, champions, and a feedback loop turn a release into a habit.</p>
+      </article>
     </section>
 
     <!-- Projects -->
