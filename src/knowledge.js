@@ -41,10 +41,11 @@ TOOLS
 
 PROJECTS
 - PM Arsenal: four tools a project manager uses weekly (Risk Scanner, Executive Briefing Generator, Capacity Tracker, AI Scenario Roleplay). In progress on GitHub.
-- Survivor-support platform: a case study and concept (not a live service) for people leaving abusive situations: a private incident log, an evidence packet for investigators, plain-language legal-process answers, and trained volunteers to attend court. Designed around safety on a shared device and a trustworthy log.
+- Survivor-support platform: her next build, shown as a case study and concept (not a live service) for people leaving abusive situations: a private incident log, an evidence packet for investigators, plain-language legal-process answers, and trained volunteers to attend court. Designed around safety on a shared device and a trustworthy log.
 - Job-search pipeline automation: connects Gmail, Outlook, and Sheets so applications, follow-ups, and leads land in one tracker.
 - This site, with this assistant, built on Cloudflare.
 
 CONTACT
+- Email: haileyscummings@outlook.com
 - LinkedIn: linkedin.com/in/hailey-cummings-mpa
 `;

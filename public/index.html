@@ -19,7 +19,7 @@
       <a href="#skills">Skills</a>
       <a href="#toolkit">Toolkit</a>
       <a href="#work">Projects</a>
-      <a href="#notes">Field notes</a>
+      <a href="#questions">Questions</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="cc" id="cc" type="button" aria-pressed="true" aria-label="Captions">
@@ -88,11 +88,48 @@
               <circle cx="158" cy="256" r="11" fill="var(--skin)"/>
             </g>
             <g class="head">
-              <circle cx="110" cy="30" r="24" fill="var(--hair)"/>
-              <circle cx="84" cy="46" r="18" fill="var(--hair)"/>
-              <circle cx="136" cy="46" r="18" fill="var(--hair)"/>
-              <ellipse cx="110" cy="92" rx="32" ry="36" fill="var(--skin)"/>
-              <path d="M76 90 Q72 44 110 42 Q148 44 144 90 Q136 64 110 62 Q84 64 76 90Z" fill="var(--hair)"/>
+              <g class="locs" fill="none" stroke="var(--hair)" stroke-width="7" stroke-linecap="round">
+              <path d="M70 96 Q62 18 110 14 Q158 18 150 96 Q110 84 70 96Z" fill="var(--hair)"/>
+              <path d="M75.2 44.4 Q64.8 89.2 63.8 134"/>
+              <path d="M77.6 39.6 Q67.8 80.8 66.7 122"/>
+              <path d="M80.6 35.3 Q71.8 86.7 70.5 138"/>
+              <path d="M84.4 31.4 Q76.7 78.7 75.2 126"/>
+              <path d="M88.8 28.1 Q82.4 70.1 80.6 112"/>
+              <path d="M93.6 25.5 Q88.7 60.8 86.7 96"/>
+              <path d="M98.9 23.6 Q95.5 51.8 93.2 80"/>
+              <path d="M104.4 22.4 Q102.7 31.2 100.0 40"/>
+              <path d="M110.0 22.0 Q110.0 31.0 107.0 40"/>
+              <path d="M115.6 22.4 Q117.3 31.2 120.0 40"/>
+              <path d="M121.1 23.6 Q124.5 51.8 126.8 80"/>
+              <path d="M126.4 25.5 Q131.3 60.8 133.3 96"/>
+              <path d="M131.2 28.1 Q137.6 70.1 139.4 112"/>
+              <path d="M135.6 31.4 Q143.3 78.7 144.8 126"/>
+              <path d="M139.4 35.3 Q148.2 86.7 149.5 138"/>
+              <path d="M142.4 39.6 Q152.2 80.8 153.3 122"/>
+              <path d="M144.8 44.4 Q155.2 89.2 156.2 134"/>
+            </g>
+            <ellipse cx="110" cy="92" rx="32" ry="36" fill="var(--skin)"/>
+            <path d="M78 74 Q76 42 110 40 Q144 42 142 74 Q136 58 110 56 Q84 58 78 74Z" fill="var(--hair)"/>
+            <g class="locs-front" fill="none" stroke="var(--hair)" stroke-width="6" stroke-linecap="round">
+              <path d="M82.0 47.4 q-2.0 11.0 -5.0 18.3"/>
+              <path d="M86.7 46.8 q-1.7 7.6 -4.2 12.6"/>
+              <path d="M91.4 46.2 q-1.3 7.7 -3.3 12.9"/>
+              <path d="M96.1 45.7 q-1.0 11.5 -2.5 19.2"/>
+              <path d="M100.8 45.1 q-0.7 8.1 -1.7 13.4"/>
+              <path d="M105.5 44.5 q-0.3 8.2 -0.8 13.7"/>
+              <path d="M110.2 44.0 q0.0 12.0 0.0 20.0"/>
+              <path d="M114.9 44.6 q0.4 8.2 0.9 13.7"/>
+              <path d="M119.6 45.2 q0.7 8.1 1.7 13.4"/>
+              <path d="M124.3 45.7 q1.0 11.5 2.6 19.1"/>
+              <path d="M129.0 46.3 q1.4 7.7 3.4 12.9"/>
+              <path d="M133.7 46.8 q1.7 7.5 4.3 12.6"/>
+              <path d="M138.4 47.4 q2.0 11.0 5.1 18.3"/>
+              <path d="M143.1 48.0 q2.4 7.2 6.0 12.0"/>
+              <path d="M147.8 48.5 q2.7 7.0 6.8 11.7"/>
+            </g>
+            <g class="locs-sheen" fill="none" stroke="var(--hair-hi)" stroke-width="1.4" stroke-linecap="round" opacity=".55">
+              <path d="M72 70 q-3 30 -2 56 M148 70 q3 30 2 56 M82 52 q-8 20 -9 40 M138 52 q8 20 9 40"/>
+            </g>
               <circle cx="78" cy="102" r="3.4" fill="var(--gold)"/>
               <circle cx="142" cy="102" r="3.4" fill="var(--gold)"/>
               <g class="eyes"><circle cx="98" cy="94" r="3.4" fill="var(--ink)"/><circle cx="122" cy="94" r="3.4" fill="var(--ink)"/></g>
@@ -109,7 +146,7 @@
         </p>
         <div class="actions">
           <a class="btn btn-solid" href="#work">See the work</a>
-          <a class="btn" href="https://www.linkedin.com/in/hailey-cummings-mpa" rel="noopener">Talk to me</a>
+          <a class="btn" href="#contact">Talk to me</a>
           <button class="btn btn-ghost" id="hear" type="button" hidden>Hear my hello</button>
         </div>
       </div>
@@ -118,6 +155,32 @@
     <!-- Trusted by -->
     <section class="trusted" data-guide="Teams like these have handed me their hardest programs.">
       <p>Trusted by teams at <b>Chevron</b>, <b>Electronic Arts</b>, <b>HPE</b>, and <b>Sysco</b>.</p>
+    </section>
+
+    <!-- Credentials -->
+    <section class="creds" aria-labelledby="creds-title" data-guide="Credentials, in writing.">
+      <h2 class="creds-title" id="creds-title">Credentials</h2>
+      <ul class="creds-list">
+        <li><b>PMP</b><span>Project Management Professional</span></li>
+        <li><b>IBM AI Engineering</b><span>Professional Certificate, completed</span></li>
+        <li><b>IBM RAG and Agentic AI</b><span>Professional Certificate</span></li>
+        <li><b>MPA</b><span>Pennsylvania State University</span></li>
+        <li><b>BS, Latin Honors</b><span>University of Houston-Clear Lake</span></li>
+      </ul>
+    </section>
+
+    <!-- Where I add value -->
+    <section class="value" id="value" aria-labelledby="value-title" data-guide="Titles vary by company. The skills are the same.">
+      <div class="value-intro">
+        <h2 id="value-title">Titles vary. The work doesn't.</h2>
+        <p>Job boards file this work under program manager, change manager, AI program lead, technical program manager, and forward-deployed or solutions roles. If you're matching on skills instead of titles, here is where I add the most value.</p>
+      </div>
+      <ol class="value-list">
+        <li data-reveal><b>When the problem is still fuzzy.</b> I sit with executives and customers until the real need is clear, then scope it and de-risk it.</li>
+        <li data-reveal><b>Between the business and the builders.</b> I translate in both directions, so engineers build the right thing and sponsors know what they're getting.</li>
+        <li data-reveal><b>When adoption is the point.</b> ADKAR-based change planning turns a launch into a habit, which is where most AI tooling programs stall.</li>
+        <li data-reveal><b>When I need to prototype it myself.</b> Python and AI tools let me put something in front of people early, instead of describing it.</li>
+      </ol>
     </section>
 
     <!-- Skills with proof -->
@@ -261,7 +324,7 @@
     </section>
 
     <!-- Projects -->
-    <section class="work" id="work" aria-labelledby="work-title" data-guide="Things I'm building. The survivor-support one is a case study, for safety.">
+    <section class="work" id="work" aria-labelledby="work-title" data-guide="Things I'm building. The survivor-support platform is next, shown as a case study for safety.">
       <h2 id="work-title">Things I'm building</h2>
 
       <article class="project" data-reveal>
@@ -303,7 +366,7 @@
         </div>
         <div class="copy">
           <h3>A private place to document abuse, and a person to sit beside you in court</h3>
-          <p class="status status-case">Case study. A concept, not a live service. Any demo uses made-up data.</p>
+          <p class="status status-case">Next build. Shown as a case study for now: a concept, not a live service. Any demo uses made-up data.</p>
           <p>For people leaving abusive situations who aren't ready to call the police. They log incidents with dates and times, assemble them into a packet for an investigator, get plain-language answers about the legal process, find free local support, and are matched with a trained volunteer to attend court with them.</p>
           <ul class="decisions">
             <li><b>Built for a shared or watched device.</b> A quick-exit button, a neutral name and icon, and notifications that never reveal the purpose.</li>
@@ -312,6 +375,16 @@
             <li><b>Volunteers as a safety program.</b> Vetting, training, and a way to report problems come first, ideally with an existing advocacy organization.</li>
             <li><b>Store less.</b> Retention and what a court could compel are decided up front.</li>
           </ul>
+          <details class="how">
+            <summary>Proposed architecture</summary>
+            <ol class="flow">
+              <li><b>Neutral app</b><span>Plain name and icon, quick-exit button</span></li>
+              <li><b>Private incident log</b><span>Server timestamps, append-only history</span></li>
+              <li><b>Evidence packet</b><span>Assembled for an investigator</span></li>
+              <li><b>Process assistant</b><span>Retrieval over vetted sources, hotline shown when danger is described</span></li>
+              <li><b>Court buddies</b><span>Vetted, trained volunteers, matched by request</span></li>
+            </ol>
+          </details>
           <p class="help">If you need help now: National Domestic Violence Hotline, 1-800-799-7233 or <a href="https://www.thehotline.org" rel="noopener">thehotline.org</a>.</p>
         </div>
       </article>
@@ -334,32 +407,71 @@
           <h3>Job-search pipeline automation</h3>
           <p>Connected Gmail, Outlook, and Google Sheets so applications, follow-ups, and fractional leads land in one tracker without copy and paste. A small build that shows how I think about workflows: find the manual step, then remove it.</p>
           <p class="status">Set up for my own search. A write-up is coming.</p>
+          <details class="how">
+            <summary>How it's wired</summary>
+            <ol class="flow">
+              <li><b>Gmail and Outlook</b><span>Where applications and replies arrive</span></li>
+              <li><b>Composio</b><span>Connects the inboxes and the sheet</span></li>
+              <li><b>Google Sheets tracker</b><span>Applications, follow-ups, and leads in one place</span></li>
+            </ol>
+          </details>
         </div>
       </article>
     </section>
 
-    <!-- Ask about Hailey -->
-    <section class="ask" id="ask" aria-labelledby="ask-title" data-guide="Ask the assistant about my path, the companies I've supported, or my tools.">
-      <div class="ask-intro">
-        <h2 id="ask-title">Ask about Hailey's path</h2>
-        <p>An AI assistant that answers from my own profile. Ask how my background fits a role, which companies I've supported, or which tools I use. It can be wrong, so check anything that matters with me directly.</p>
+    <!-- Now building -->
+    <section class="building" id="building" aria-labelledby="building-title" data-guide="Live from my GitHub, plus how this site works.">
+      <div class="building-intro">
+        <h2 id="building-title">Now building, in public</h2>
+        <p>Real repositories, listed by most recent update, straight from GitHub.</p>
       </div>
+      <div class="building-body">
+        <ul class="gh-feed" id="gh-feed" aria-live="polite">
+          <li class="gh-fallback"><a href="https://github.com/HaileyCummings" rel="noopener">See my repositories on GitHub</a></li>
+        </ul>
+        <div class="building-site" data-reveal>
+          <h3>How this site is built</h3>
+          <ol class="flow">
+            <li><b>Static pages</b><span>HTML, CSS, and a little JavaScript. No framework, self-hosted fonts</span></li>
+            <li><b>Cloudflare Workers</b><span>Serves the site from the edge worldwide</span></li>
+            <li><b>Push to GitHub</b><span>Every change to main deploys automatically</span></li>
+            <li><b>An assistant, ready</b><span>A Worker endpoint for a live Q&amp;A chat is built and switched off for now</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
-      <div class="ask-panel">
-        <div class="ask-log" id="ask-log" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" aria-label="Conversation with the assistant">
-          <p class="msg msg-bot">Hi, I'm an AI assistant for Hailey's site. Ask me about her career path, the companies she's supported, or her tools. If you tell me about a role, I'll explain how her background fits.</p>
-        </div>
-        <div class="ask-chips" id="ask-chips">
-          <button type="button">How does a PM background help in a forward-deployed role?</button>
-          <button type="button">Which companies has Hailey supported?</button>
-          <button type="button">Which tools does she use?</button>
-          <button type="button">Why her for an AI program lead role?</button>
-        </div>
-        <form class="ask-form" id="ask-form" autocomplete="off">
-          <label class="sr" for="ask-input">Your question</label>
-          <input id="ask-input" name="q" type="text" maxlength="500" placeholder="Ask a question, or describe a role" required>
-          <button class="btn btn-solid" id="ask-send" type="submit">Send</button>
-        </form>
+    <!-- Common questions -->
+    <section class="faq" id="questions" aria-labelledby="questions-title" data-guide="The questions people usually ask me, answered.">
+      <div class="faq-intro">
+        <h2 id="questions-title">Common questions</h2>
+        <p>What recruiters and hiring managers ask most, answered straight.</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>How does a project management background help in a forward-deployed role?</summary>
+          <p>Forward-deployed work starts with a customer whose problem is only half described. I'm used to sitting with executives and operators, finding the real need, scoping it, and managing the risk. Then I can prototype in Python and AI tools, and get the people involved to use what we built. The combination of customer trust, delivery discipline, and technical fluency is the job.</p>
+        </details>
+        <details>
+          <summary>Which companies have you supported?</summary>
+          <p>Teams at Chevron, Electronic Arts, HPE, and Sysco have trusted me with their programs. I describe the work in general terms and don't tie any project, result, or tool to a specific client.</p>
+        </details>
+        <details>
+          <summary>Which tools do you use, and which are you still learning?</summary>
+          <p>In my own work: Python, Claude, Composio, Jira, Confluence, GitHub, Cloudflare Workers, SharePoint, Teams, PowerPoint, and Excel, plus ADKAR and human review rubrics for acceptance checks. On my learning map, not claimed as production experience: LangChain and LangGraph, Hugging Face and PyTorch, FastAPI, RAG patterns and vector stores, evaluation tools like Promptfoo and Ragas, Docker, GitHub Actions, and the major clouds. The <a href="#toolkit">toolkit section</a> marks each one.</p>
+        </details>
+        <details>
+          <summary>Why you for an AI program lead role?</summary>
+          <p>I spent a year leading an AI tooling change program, moving teams from pilot to everyday use. That is the hard part of most AI programs, and it's a people problem more than a model problem. I also build, so I can judge scope and risk with engineers instead of relying on summaries.</p>
+        </details>
+        <details>
+          <summary>How deep is your hands-on AI engineering?</summary>
+          <p>Newer than my delivery and change experience, and I'd rather say so than hide it. I completed the IBM AI Engineering Professional Certificate and the IBM RAG and Agentic AI Professional Certificate, and I build projects in public so you can judge how I learn from the code, not a claim.</p>
+        </details>
+        <details>
+          <summary>What's your path in short?</summary>
+          <p>Eleven years in enterprise project and program delivery, growing into change management for Fortune 500 clients, then fractional consulting since August 2024. I most recently led an AI tooling adoption program at a large global software company, and I'm now moving toward director-level and hybrid PM and AI engineering roles.</p>
+        </details>
       </div>
     </section>
 
@@ -376,7 +488,11 @@
     <!-- Contact -->
     <section class="contact" id="contact" aria-labelledby="contact-title" data-guide="Let's talk.">
       <h2 id="contact-title">Hiring for a role that sits between the plan and the build?</h2>
-      <p><a class="big-link" href="https://www.linkedin.com/in/hailey-cummings-mpa" rel="noopener">Find me on LinkedIn</a></p>
+      <p><a class="big-link" href="mailto:haileyscummings@outlook.com">haileyscummings@outlook.com</a></p>
+      <p class="contact-links">
+        <a href="https://www.linkedin.com/in/hailey-cummings-mpa" rel="noopener">LinkedIn</a>
+        <a href="Hailey-Cummings-Resume.pdf" id="resume" download hidden>Download my resume (PDF)</a>
+      </p>
       <p class="contact-sub">I'm looking at director-level and hybrid PM and AI engineering roles, including forward-deployed work.</p>
     </section>
   </main>

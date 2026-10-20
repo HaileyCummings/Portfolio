@@ -120,64 +120,44 @@
     setTimeout(() => revealTargets.forEach((el) => el.classList.add('in')), 6000);
   }
 
-  /* ---------- Ask the assistant ---------- */
-  const askForm = $('#ask-form');
-  if (askForm) {
-    const log = $('#ask-log');
-    const input = $('#ask-input');
-    const send = $('#ask-send');
-    const chips = $('#ask-chips');
-    const history = [];
+  /* ---------- Resume link: appears only once the PDF is in the repo ---------- */
+  const resume = $('#resume');
+  if (resume) {
+    fetch('Hailey-Cummings-Resume.pdf', { method: 'HEAD' })
+      .then((r) => { if (r.ok && (r.headers.get('content-type') || '').includes('pdf')) resume.hidden = false; })
+      .catch(() => {});
+  }
 
-    function add(text, kind) {
-      const p = document.createElement('p');
-      p.className = 'msg msg-' + kind;
-      p.textContent = text;
-      log.appendChild(p);
-      log.scrollTop = log.scrollHeight;
-      return p;
-    }
-
-    async function ask(question) {
-      const q = question.trim();
-      if (!q) return;
-      add(q, 'user');
-      history.push({ role: 'user', content: q });
-      input.value = '';
-      input.disabled = true; send.disabled = true;
-      chips.hidden = true;
-      const wait = add('Thinking...', 'bot');
-      wait.classList.add('msg-wait');
-      try {
-        const res = await fetch('/api/ask', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ messages: history.slice(-8) }),
+  /* ---------- Now building: latest repositories from GitHub ---------- */
+  const feed = $('#gh-feed');
+  if (feed) {
+    const ago = (iso) => {
+      const d = Math.max(0, Math.round((Date.now() - new Date(iso)) / 864e5));
+      if (d < 1) return 'today';
+      if (d < 30) return d + (d === 1 ? ' day ago' : ' days ago');
+      const m = Math.round(d / 30);
+      return m < 12 ? m + (m === 1 ? ' month ago' : ' months ago') : 'over a year ago';
+    };
+    fetch('https://api.github.com/users/HaileyCummings/repos?sort=pushed&per_page=12', { headers: { Accept: 'application/vnd.github+json' } })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((repos) => {
+        const list = repos.filter((r) => !r.fork).slice(0, 4);
+        if (!list.length) return;
+        feed.textContent = '';
+        list.forEach((r) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = r.html_url; a.rel = 'noopener'; a.textContent = r.name;
+          li.appendChild(a);
+          if (r.description) { const p = document.createElement('p'); p.style.margin = '0'; p.textContent = r.description; li.appendChild(p); }
+          const m = document.createElement('span');
+          m.className = 'gh-meta';
+          m.textContent = [r.language, 'updated ' + ago(r.pushed_at)].filter(Boolean).join(' · ');
+          li.appendChild(m);
+          feed.appendChild(li);
         });
-        const data = await res.json().catch(() => ({}));
-        wait.remove();
-        if (!res.ok || !data.reply) {
-          history.pop();
-          add(data.error || 'Something went wrong. Please try again.', 'error');
-        } else {
-          history.push({ role: 'assistant', content: data.reply });
-          add(data.reply, 'bot');
-        }
-      } catch (_) {
-        wait.remove();
-        history.pop();
-        add('I could not reach the assistant. Please try again.', 'error');
-      } finally {
-        input.disabled = false; send.disabled = false;
-        input.focus();
-      }
-    }
-
-    askForm.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
-    chips.addEventListener('click', (e) => {
-      const b = e.target.closest('button');
-      if (b) ask(b.textContent);
-    });
+      })
+      .catch(() => {});
   }
 
   /* ---------- Guide dock: a small Hailey who says what each section is ---------- */

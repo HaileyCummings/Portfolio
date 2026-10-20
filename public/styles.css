@@ -37,8 +37,9 @@
   --cream: #fbf6ec;
 
   /* Hailey, the illustrated guide. Swap these to restyle her. */
-  --skin: #c68863;
-  --hair: #2a1c18;
+  --skin: #a96f49;
+  --hair: #21140f;
+  --hair-hi: #5b3c2e;
   --blazer: #bf381f;
   --blazer-dark: #8f2916;
   --top: #fbf6ec;
@@ -391,38 +392,69 @@ a { color: inherit; }
 }
 
 
-/* ---------- Ask the assistant ---------- */
-.ask { background: var(--butter); color: var(--ink); padding: clamp(72px, 11vw, 140px) var(--gutter); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-.ask-intro { display: grid; gap: 18px; position: sticky; top: calc(var(--bar-h) + 28px); }
-.ask h2 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; font-weight: 560; letter-spacing: -0.015em; font-variation-settings: "opsz" 144, "SOFT" 70; }
-.ask-intro p { max-width: 36ch; }
-.ask-panel { background: var(--ink); color: var(--cream); border-radius: 22px; padding: clamp(16px, 2.4vw, 28px); display: grid; gap: 16px; }
-.ask-log { display: grid; gap: 12px; max-height: min(52vh, 460px); overflow-y: auto; padding-right: 4px; scrollbar-color: var(--butter) transparent; }
-.msg { margin: 0; padding: 12px 16px; border-radius: 16px; max-width: 46ch; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
-.msg-bot { background: color-mix(in srgb, var(--cream) 12%, transparent); justify-self: start; border-bottom-left-radius: 6px; }
-.msg-user { background: var(--butter); color: var(--ink); justify-self: end; border-bottom-right-radius: 6px; }
-.msg-error { background: var(--vermilion); color: var(--cream); justify-self: start; }
-.msg-wait { opacity: 0.75; font-style: italic; }
-.ask-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.ask-chips[hidden] { display: none; }
-.ask-chips button {
-  font: 500 0.9rem/1.25 var(--sans); text-align: left; cursor: pointer; padding: 9px 13px; border-radius: 999px;
-  background: transparent; color: var(--cream); border: 1.5px solid color-mix(in srgb, var(--cream) 45%, transparent);
-  transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease;
-}
-.ask-chips button:active { transform: scale(0.97); }
-@media (hover: hover) and (pointer: fine) { .ask-chips button:hover { background: var(--butter); color: var(--ink); border-color: var(--butter); } }
-.ask-form { display: flex; gap: 10px; }
-.ask-form input {
-  flex: 1; min-width: 0; font: 500 1rem/1.2 var(--sans); padding: 13px 16px; border-radius: 12px;
-  background: var(--cream); color: var(--ink); border: 2px solid transparent; caret-color: var(--vermilion);
-}
-.ask-form input::placeholder { color: color-mix(in srgb, var(--ink) 62%, transparent); }
-.ask-form .btn { border-color: var(--butter); background: var(--butter); color: var(--ink); }
-.ask-form .btn[disabled], .ask-form input[disabled] { opacity: 0.6; cursor: progress; }
-.ask :focus-visible { outline-color: var(--cobalt); }
-.ask-panel :focus-visible { outline-color: var(--butter); }
-@media (max-width: 860px) { .ask { grid-template-columns: 1fr; } .ask-intro { position: static; } .ask-form { flex-wrap: wrap; } .ask-form .btn { flex: 1; justify-content: center; } }
+/* ---------- Credentials ---------- */
+.creds { padding: 0 var(--gutter) clamp(56px, 9vw, 110px); display: grid; gap: 18px; }
+.creds-title { font-family: var(--mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 72%, transparent); }
+.creds-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 12px; }
+.creds-list li { display: grid; gap: 2px; padding: 12px 18px; border: 2px solid var(--ink); border-radius: 999px; line-height: 1.25; }
+.creds-list b { font-family: var(--display); font-size: 1.1rem; font-weight: 600; }
+.creds-list span { font-size: 0.85rem; color: color-mix(in srgb, var(--ink) 80%, transparent); }
+
+/* ---------- Where I add value ---------- */
+.value { padding: clamp(40px, 8vw, 100px) var(--gutter) clamp(72px, 11vw, 140px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.value-intro { display: grid; gap: 18px; position: sticky; top: calc(var(--bar-h) + 28px); }
+.value h2 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; font-weight: 560; letter-spacing: -0.015em; font-variation-settings: "opsz" 144, "SOFT" 70; }
+.value-intro p { max-width: 40ch; }
+.value-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.value-list li { padding: 22px 0; border-top: 2px solid var(--ink); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.5; max-width: 52ch; }
+.value-list li:last-child { border-bottom: 2px solid var(--ink); }
+.value-list b { font-family: var(--display); font-weight: 600; }
+@media (max-width: 860px) { .value { grid-template-columns: 1fr; } .value-intro { position: static; } }
+
+/* ---------- Flow diagrams (used in projects and the build section) ---------- */
+.how { margin-top: 6px; border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent); padding-top: 12px; }
+.how summary, .faq summary { cursor: pointer; }
+.how summary { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.04em; padding-block: 6px; }
+.flow { list-style: none; margin: 14px 0 4px; padding: 0; display: grid; gap: 0; counter-reset: step; }
+.flow li { position: relative; display: grid; gap: 2px; padding: 12px 16px; margin-bottom: 22px; border: 1.5px solid currentColor; border-radius: 14px; }
+.flow li:last-child { margin-bottom: 0; }
+.flow li::after { content: ""; position: absolute; left: 28px; top: 100%; width: 1.5px; height: 22px; background: currentColor; }
+.flow li:last-child::after { display: none; }
+.flow b { font-weight: 650; }
+.flow span { font-size: 0.9rem; opacity: 0.85; }
+
+/* ---------- Now building ---------- */
+.building { background: var(--ink); color: var(--cream); padding: clamp(72px, 11vw, 140px) var(--gutter); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.building-intro { display: grid; gap: 18px; position: sticky; top: calc(var(--bar-h) + 28px); }
+.building h2 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; font-weight: 560; letter-spacing: -0.015em; font-variation-settings: "opsz" 144, "SOFT" 70; }
+.building-intro p { max-width: 34ch; }
+.building-body { display: grid; gap: clamp(36px, 6vw, 64px); }
+.gh-feed { list-style: none; margin: 0; padding: 0; display: grid; }
+.gh-feed li { padding: 16px 0; border-top: 1px solid color-mix(in srgb, var(--cream) 22%, transparent); display: grid; gap: 4px; }
+.gh-feed li:last-child { border-bottom: 1px solid color-mix(in srgb, var(--cream) 22%, transparent); }
+.gh-feed a { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--butter); text-underline-offset: 4px; }
+.gh-feed .gh-meta { font-family: var(--mono); font-size: 0.8rem; opacity: 0.8; }
+.building-site h3 { font-family: var(--display); font-size: 1.5rem; font-weight: 560; margin-bottom: 4px; }
+.building :focus-visible { outline-color: var(--butter); }
+@media (max-width: 860px) { .building { grid-template-columns: 1fr; } .building-intro { position: static; } }
+@media (min-width: 700px) { .building-site .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 22px; } .building-site .flow li { margin: 0; } .building-site .flow li::after { display: none; } }
+
+/* ---------- Common questions ---------- */
+.faq { background: var(--butter); color: var(--ink); padding: clamp(72px, 11vw, 140px) var(--gutter); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.faq-intro { display: grid; gap: 18px; position: sticky; top: calc(var(--bar-h) + 28px); }
+.faq h2 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; font-weight: 560; letter-spacing: -0.015em; font-variation-settings: "opsz" 144, "SOFT" 70; }
+.faq-intro p { max-width: 32ch; }
+.faq-list { display: grid; }
+.faq-list details { border-top: 2px solid var(--ink); padding: 4px 0; }
+.faq-list details:last-child { border-bottom: 2px solid var(--ink); }
+.faq-list summary { font-family: var(--display); font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 560; line-height: 1.3; padding: 16px 36px 16px 0; position: relative; list-style: none; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; position: absolute; right: 4px; top: 50%; translate: 0 -50%; font-family: var(--mono); font-size: 1.5rem; transition: rotate 200ms var(--ease-out); }
+.faq-list details[open] summary::after { rotate: 45deg; }
+.faq-list details p { margin: 0 0 18px; max-width: 58ch; line-height: 1.6; }
+.faq :focus-visible { outline-color: var(--cobalt); }
+.faq a { color: var(--cobalt); }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } .faq-intro { position: static; } }
 
 /* ---------- Notes ---------- */
 .notes { padding: clamp(72px, 11vw, 140px) var(--gutter); }
@@ -444,6 +476,10 @@ a { color: inherit; }
 }
 @media (hover: hover) and (pointer: fine) { .big-link:hover { text-decoration-thickness: 7px; } }
 .contact-sub { max-width: 52ch; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.contact-links a { font-weight: 600; text-underline-offset: 4px; }
+.contact-links a[hidden] { display: none; }
+.big-link { overflow-wrap: anywhere; }
 
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 22px var(--gutter); background: var(--paper-2); font-size: 0.9rem; }
 
