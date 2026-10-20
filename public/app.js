@@ -72,7 +72,15 @@
       if (!r.ok || !(r.headers.get('content-type') || '').includes('audio')) return;
       const audio = new Audio('audio/hello.mp3');
       hear.hidden = false;
-      hear.addEventListener('click', () => { audio.currentTime = 0; audio.play(); });
+      const cues = [];
+      hear.addEventListener('click', () => {
+        cues.forEach(clearTimeout); cues.length = 0;
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+        // Captions follow the voice. Retime these two numbers to match the recording.
+        say(LINES[0]);
+        cues.push(setTimeout(() => say(LINES[1]), 1800));
+      });
     })
     .catch(() => {});
 
