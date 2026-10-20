@@ -3,7 +3,7 @@
 export const KNOWLEDGE = `
 ABOUT HAILEY CUMMINGS
 - Senior project and change management consultant with 11 years of enterprise experience. Based in the Houston, Texas area.
-- Education: Master of Public Administration, Pennsylvania State University. Bachelor of Science in Public Service Leadership with Latin Honors, University of Houston-Clear Lake.
+- Education: Master of Public Administration, Pennsylvania State University. Bachelor of Science in Public Service Leadership, University of Houston-Clear Lake.
 - Credentials: PMP; IBM AI Engineering Professional Certificate (completed); IBM RAG and Agentic AI Professional Certificate.
 - Looking for: director-level leadership roles and hybrid roles that bridge project management and AI engineering, including forward-deployed engineer roles.
 
