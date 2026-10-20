@@ -74,12 +74,13 @@
       hear.hidden = false;
       const cues = [];
       hear.addEventListener('click', () => {
+        finishIntro();
         cues.forEach(clearTimeout); cues.length = 0;
         audio.currentTime = 0;
         audio.play().catch(() => {});
-        // Captions follow the voice. Retime these two numbers to match the recording.
+        // Captions follow the voice: line two begins about 2.35 seconds into the recording.
         say(LINES[0]);
-        cues.push(setTimeout(() => say(LINES[1]), 1800));
+        cues.push(setTimeout(() => say(LINES[1]), 2350));
       });
     })
     .catch(() => {});
