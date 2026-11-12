@@ -406,6 +406,15 @@ a { color: inherit; }
 }
 
 
+
+/* ---------- Also in the works ---------- */
+.more { margin-top: clamp(72px, 12vw, 150px); display: grid; gap: 18px; max-width: 70ch; }
+.more h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 560; font-variation-settings: "opsz" 144, "SOFT" 60; }
+.more ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.more li { padding: 16px 0; border-top: 1px solid color-mix(in srgb, var(--cream) 22%, transparent); line-height: 1.55; }
+.more li:last-child { border-bottom: 1px solid color-mix(in srgb, var(--cream) 22%, transparent); }
+.more b { font-weight: 650; }
+
 /* ---------- Credentials ---------- */
 .creds { padding: 0 var(--gutter) clamp(56px, 9vw, 110px); display: grid; gap: 18px; }
 .creds-title { font-family: var(--mono); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 72%, transparent); }

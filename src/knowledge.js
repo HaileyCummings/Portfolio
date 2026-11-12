@@ -32,18 +32,27 @@ SKILLS
 - Change management: ADKAR-based adoption planning.
 - Delivery and value: turning requests into measurable outcomes.
 - AI enablement: helping organizations choose AI tools, set guardrails, and teach people to use them well.
-- Python and AI engineering: building projects in public.
+- AI use case prioritization: identified and ranked six priority AI use cases across five business units, tied to C-suite goals.
+- Business case and value tracking: avoided $1.2M in rollout costs over seven months by surfacing overlooked risks and re-prioritizing use cases.
+- Decision frameworks: built an agentic AI pilot framework with phased ADKAR plans, qualification criteria, and stop-gates; three use cases reached production-ready in four months.
+- Responsible AI governance: partnered with Legal and resolved nine policy questions.
+- Program results: scaled an enterprise AI program from 500 to 10,000 users in six months at 75% adoption; stood up a PMO for 10 AI workstreams; directed 15+ initiatives worth $5M+ each at 95%+ on-time delivery.
+- Customer-facing delivery: helped scope nine client proposals (about $3M pursued) and coordinated offshore teams across three time zones.
+- Data, Python, and AI engineering: builds with Python, SQL, and Power BI; building projects in public.
 
 TOOLS
-- Used in her own work: Python, Claude, Composio (connecting Gmail, Outlook, and Google Sheets), Jira, Confluence, GitHub, Cloudflare Workers, SharePoint, Microsoft Teams, PowerPoint, Excel, the ADKAR model, and human review rubrics for acceptance checks.
-- Studied or on her learning map, not claimed as production experience: LLM APIs from several providers, LangChain and LangGraph, Hugging Face and PyTorch, FastAPI, RAG patterns and embeddings, vector stores such as Chroma and FAISS, evaluation and tracing tools such as Promptfoo, Ragas, LangSmith, and Langfuse, Docker, GitHub Actions, and the major clouds.
+- Used in her own work: Python, SQL, Power BI, Hadoop and Spark (about six months), Claude, ChatGPT and Copilot, Salesforce, Smartsheet, Composio (connecting Gmail, Outlook, and Google Sheets), Jira, Confluence, GitHub, Cloudflare Workers, SharePoint, Microsoft Teams, PowerPoint, Excel, the ADKAR model, and human review rubrics for acceptance checks.
+- Studied through IBM coursework: R, scikit-learn, PyTorch, TensorFlow, and AWS, Azure, and Google Cloud.
+- On her learning map, not claimed as production experience: Tableau, LLM APIs from several providers, LangChain and LangGraph, Hugging Face, FastAPI, RAG patterns and embeddings, vector stores such as Chroma and FAISS, evaluation and tracing tools such as Promptfoo, Ragas, LangSmith, and Langfuse, Docker, GitHub Actions.
 - If asked whether she has used a tool that is not listed as used, say it is on her learning map or that you do not have that information. Never claim hands-on experience that is not listed.
 
 PROJECTS
 - PM Arsenal: four tools a project manager uses weekly (Risk Scanner, Executive Briefing Generator, Capacity Tracker, AI Scenario Roleplay). In progress on GitHub.
 - Survivor-support platform: her next build, shown as a case study and concept (not a live service) for people leaving abusive situations: a private incident log, an evidence packet for investigators, plain-language legal-process answers, and trained volunteers to attend court. Designed around safety on a shared device and a trustworthy log.
 - Job-search pipeline automation: connects Gmail, Outlook, and Sheets so applications, follow-ups, and leads land in one tracker.
-- This site, with this assistant, built on Cloudflare.
+- Trip 33: group trip coordination app with energy-aware pacing; MVP spec, constraint taxonomy, and data schema complete.
+- Kids' digital safety app and course: phone etiquette and online safety for ages seven to sixteen, early stage.
+- This site, built on Cloudflare.
 
 CONTACT
 - Email: haileyscummings@outlook.com
