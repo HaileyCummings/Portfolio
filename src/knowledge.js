@@ -41,9 +41,9 @@ SKILLS
 - Data, Python, and AI engineering: builds with Python, SQL, and Power BI; building projects in public.
 
 TOOLS
-- Used in her own work: Python, SQL, Power BI, Hadoop and Spark (about six months), Claude, ChatGPT and Copilot, Salesforce, Smartsheet, Composio (connecting Gmail, Outlook, and Google Sheets), Jira, Confluence, GitHub, Cloudflare Workers, SharePoint, Microsoft Teams, PowerPoint, Excel, the ADKAR model, and human review rubrics for acceptance checks.
+- Used in her own work: Python, SQL, Power BI, Tableau, Hadoop and Spark (about six months), Claude, ChatGPT and Copilot, Salesforce, Smartsheet, Composio (connecting Gmail, Outlook, and Google Sheets), Jira, Confluence, GitHub, Cloudflare Workers, SharePoint, Microsoft Teams, PowerPoint, Excel, the ADKAR model, and human review rubrics for acceptance checks.
 - Studied through IBM coursework: R, scikit-learn, PyTorch, TensorFlow, and AWS, Azure, and Google Cloud.
-- On her learning map, not claimed as production experience: Tableau, LLM APIs from several providers, LangChain and LangGraph, Hugging Face, FastAPI, RAG patterns and embeddings, vector stores such as Chroma and FAISS, evaluation and tracing tools such as Promptfoo, Ragas, LangSmith, and Langfuse, Docker, GitHub Actions.
+- On her learning map, not claimed as production experience: LLM APIs from several providers, LangChain and LangGraph, Hugging Face, FastAPI, RAG patterns and embeddings, vector stores such as Chroma and FAISS, evaluation and tracing tools such as Promptfoo, Ragas, LangSmith, and Langfuse, Docker, GitHub Actions.
 - If asked whether she has used a tool that is not listed as used, say it is on her learning map or that you do not have that information. Never claim hands-on experience that is not listed.
 
 PROJECTS
