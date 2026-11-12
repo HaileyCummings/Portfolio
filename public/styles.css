@@ -113,6 +113,20 @@ a { color: inherit; }
 @media (max-width: 640px) { .bar-nav a:nth-child(n+4) { display: none; } .bar-nav { gap: 16px; } }
 @media (max-width: 420px) { .bar-nav { display: none; } }
 
+/* ---------- Greeting ---------- */
+.hello { padding: calc(var(--bar-h) + 22px) var(--gutter) 0; text-align: center; }
+.hello p {
+  display: inline-block; margin: 0;
+  font-family: var(--display); font-style: italic; font-weight: 500;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem); line-height: 1.25;
+  padding: 8px 20px; border: 2px solid var(--ink); border-radius: 999px;
+  background: var(--butter);
+  animation: hello-in 300ms var(--ease-out) 120ms both;
+}
+@keyframes hello-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.hello + .stage { --fig-h: clamp(230px, 37vh, 400px); padding-top: 18px; row-gap: 16px; min-height: calc(100svh - var(--bar-h) - 64px); }
+.hello + .stage .panels { min-height: clamp(260px, 40vh, 440px); }
+
 /* ---------- Intro stage ---------- */
 .stage {
   --fig-h: clamp(250px, 46vh, 430px);
