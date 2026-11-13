@@ -22,7 +22,7 @@
   });
   paintCaptions();
 
-  /* ---------- Intro sequence ---------- */
+  /* ---------- Intro: she peeks in, walks to the greeting, waves, then hops down ---------- */
   const caption = $('#caption');
   const captionText = $('#caption-text');
   const LINES = [
@@ -30,6 +30,13 @@
     "I'm Hailey. I run the plan, and I build with AI."
   ];
   const timers = [];
+  const anims = [];
+  const main = $('#top');
+  const figure = $('#figure');
+  const avatarSrc = $('#avatar');
+  const pill = $('.hello p');
+  let walker = null;
+  let ended = false;
 
   function say(text) {
     captionText.textContent = text;
@@ -39,30 +46,135 @@
     caption.classList.add('pop');
   }
 
+  // Ends the intro right now (visitor acted, or the voice greeting took over).
   function finishIntro() {
+    ended = true;
     timers.forEach(clearTimeout);
     timers.length = 0;
-    root.classList.add('skip-intro');
+    anims.forEach((a) => { try { a.cancel(); } catch (_) {} });
+    anims.length = 0;
+    if (walker) { walker.remove(); walker = null; }
+    root.classList.add('skip-intro', 'intro-done');
+    if (pill) pill.classList.remove('wiggle');
     captionText.textContent = LINES[1];
     caption.classList.add('has-text');
   }
 
+  const wait = (ms) => new Promise((res) => timers.push(setTimeout(res, ms)));
+
+  async function runIntro() {
+    if (ended) return;
+    await Promise.race([document.fonts ? document.fonts.ready : null, wait(1500)]);
+    await wait(500);
+    if (ended) return;
+    if (scrollY > 40 || !figure || !pill || !main || !avatarSrc) { finishIntro(); return; }
+
+    const mb = main.getBoundingClientRect();
+    const fb = figure.getBoundingClientRect();
+    const W = fb.width, H = fb.height;
+    walker = document.createElement('div');
+    walker.className = 'walker';
+    walker.setAttribute('aria-hidden', 'true');
+    walker.style.width = W + 'px';
+    walker.style.height = H + 'px';
+    const svg = avatarSrc.cloneNode(true);
+    svg.removeAttribute('id');
+    walker.appendChild(svg);
+    main.appendChild(walker);
+
+    const pb = pill.getBoundingClientRect();
+    const s0 = Math.min(0.42, Math.max(0.28, (pb.height * 2.2) / H));
+    const half = (W * s0) / 2;
+    const feetY = pb.top - mb.top + pb.height / 2 + (H * s0) / 2;
+    let standX = pb.left - mb.left - half - 18;
+    if (standX < half + 8) standX = half + 10; // narrow screens: stand at the greeting's left end
+    const tf = (x, y, sx, sy, rot) =>
+      'translate(' + (x - W / 2) + 'px,' + (y - H) + 'px) rotate(' + (rot || 0) + 'deg) scale(' + sx + ',' + sy + ')';
+    const go = (frames, opts) => {
+      if (ended) return Promise.reject(new Error('ended'));
+      const a = walker.animate(frames, Object.assign({ fill: 'forwards' }, opts));
+      anims.push(a);
+      return a.finished;
+    };
+    const cls = (name, on) => svg.classList.toggle(name, on);
+
+    try {
+      // 1. Peek: slide in until about half of her is showing, and look around
+      await go(
+        [{ transform: tf(-half - 24, feetY, s0, s0, 0), opacity: 1 }, { transform: tf(4, feetY, s0, s0, 9), opacity: 1 }],
+        { duration: 650, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' }
+      );
+      cls('peeking', true);
+      await wait(900);
+      cls('peeking', false);
+
+      // 2. Walk over to the greeting
+      cls('walking', true);
+      const dist = Math.abs(standX - 4);
+      await go(
+        [{ transform: tf(4, feetY, s0, s0, 9), opacity: 1 }, { transform: tf(standX, feetY, s0, s0, 0), opacity: 1 }],
+        { duration: Math.min(2800, Math.max(1500, dist * 4.2)), easing: 'ease-in-out' }
+      );
+      cls('walking', false);
+
+      // 3. Wave at it
+      cls('waving', true);
+      timers.push(setTimeout(() => { pill.classList.remove('wiggle'); void pill.offsetWidth; pill.classList.add('wiggle'); }, 350));
+      await wait(1600);
+      cls('waving', false);
+
+      // 4. Hop down to the hero
+      const f2 = figure.getBoundingClientRect();
+      const m2 = main.getBoundingClientRect();
+      const endX = f2.left - m2.left + W / 2;
+      const endY = f2.bottom - m2.top;
+      const midX = standX + (endX - standX) * 0.38;
+      cls('crouch', true);
+      timers.push(setTimeout(() => { cls('crouch', false); cls('air', true); }, 170));
+      await go(
+        [
+          { transform: tf(standX, feetY, s0, s0, 0), offset: 0, easing: 'ease-in-out' },
+          { transform: tf(standX, feetY, s0 * 1.1, s0 * 0.84, 0), offset: 0.15, easing: 'cubic-bezier(0.2, 0.7, 0.4, 1)' },
+          { transform: tf(midX, feetY - 100, s0 * 0.98, s0 * 1.06, -7), offset: 0.42, easing: 'cubic-bezier(0.5, 0, 0.9, 0.55)' },
+          { transform: tf(endX, endY, 1, 1, 0), offset: 1 }
+        ],
+        { duration: 1150 }
+      );
+      cls('air', false);
+
+      // 5. Land with a squash, wobble, and wave
+      cls('landed', true);
+      await go(
+        [{ transform: tf(endX, endY, 1.08, 0.88, 0) }, { transform: tf(endX, endY, 0.98, 1.03, 3) }, { transform: tf(endX, endY, 1, 1, 0) }],
+        { duration: 420, easing: 'ease-out' }
+      );
+      root.classList.add('intro-done');
+      if (avatarSrc) { avatarSrc.classList.add('waving'); }
+      walker.remove(); walker = null;
+      ended = true;
+      timers.push(setTimeout(() => say(LINES[0]), 250));
+      timers.push(setTimeout(() => say(LINES[1]), 2500));
+    } catch (_) {
+      /* cancelled by finishIntro */
+    }
+  }
+
   if (reduce) {
+    root.classList.add('intro-done');
     captionText.textContent = LINES[1];
     caption.classList.add('has-text');
   } else {
-    timers.push(setTimeout(() => say(LINES[0]), 3500));
-    timers.push(setTimeout(() => say(LINES[1]), 5700));
+    runIntro();
     // Any real action ends the intro right away.
     const bail = () => {
-      finishIntro();
+      if (!ended) finishIntro();
       removeEventListener('wheel', bail);
       removeEventListener('touchmove', bail);
       removeEventListener('keydown', bail);
     };
-    addEventListener('wheel', bail, { passive: true, once: true });
-    addEventListener('touchmove', bail, { passive: true, once: true });
-    addEventListener('keydown', bail, { once: true });
+    addEventListener('wheel', bail, { passive: true });
+    addEventListener('touchmove', bail, { passive: true });
+    addEventListener('keydown', bail);
   }
 
   /* ---------- Optional voice greeting: appears only if /audio/hello.mp3 exists ---------- */
@@ -167,6 +279,33 @@
         });
       })
       .catch(() => {});
+  }
+
+  /* ---------- Chalkboard: she pulls out a board and sketches the plan ---------- */
+  const scene = $('#board-scene');
+  const sceneFig = $('#scene-fig');
+  if (scene && sceneFig && avatarSrc) {
+    const c = avatarSrc.cloneNode(true);
+    c.removeAttribute('id');
+    c.setAttribute('aria-hidden', 'true');
+    const hand = $('.arm-r', c);
+    if (hand) {
+      const stick = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      stick.setAttribute('class', 'chalk-stick');
+      stick.setAttribute('x', '155'); stick.setAttribute('y', '260');
+      stick.setAttribute('width', '7'); stick.setAttribute('height', '24'); stick.setAttribute('rx', '2');
+      hand.appendChild(stick);
+    }
+    sceneFig.appendChild(c);
+    if (reduce || !('IntersectionObserver' in window)) {
+      scene.classList.add('go');
+    } else {
+      const sio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { scene.classList.add('go'); sio.disconnect(); } });
+      }, { threshold: 0.4 });
+      sio.observe(scene);
+      setTimeout(() => scene.classList.add('go'), 12000);
+    }
   }
 
   /* ---------- Guide dock: a small Hailey who says what each section is ---------- */
