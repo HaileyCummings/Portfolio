@@ -262,7 +262,7 @@
     fetch('https://api.github.com/users/HaileyCummings/repos?sort=pushed&per_page=12', { headers: { Accept: 'application/vnd.github+json' } })
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((repos) => {
-        const list = repos.filter((r) => !r.fork).slice(0, 4);
+        const list = repos.filter((r) => !r.fork && r.name.toLowerCase() !== 'pm-arsenal').slice(0, 4);
         if (!list.length) return;
         feed.textContent = '';
         list.forEach((r) => {
